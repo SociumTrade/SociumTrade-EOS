@@ -1,0 +1,114 @@
+{
+    "____comment": "This file was generated with eosio-abigen. DO NOT EDIT Tue Oct  2 21:46:46 2018",
+    "version": "eosio::abi/1.0",
+    "structs": [
+        {
+            "name": "create",
+            "base": "",
+            "fields": [
+                {
+                    "name": "user",
+                    "type": "name"
+                },
+                {
+                    "name": "price_time_values_string",
+                    "type": "string"
+                },
+                {
+                    "name": "startTime",
+                    "type": "uint32"
+                },
+                {
+                    "name": "endTime",
+                    "type": "uint32"
+                }
+            ]
+        },
+        {
+            "name": "erase",
+            "base": "",
+            "fields": [
+                {
+                    "name": "user",
+                    "type": "name"
+                }
+            ]
+        },
+        {
+            "name": "hi",
+            "base": "",
+            "fields": [
+                {
+                    "name": "user",
+                    "type": "name"
+                }
+            ]
+        },
+        {
+            "name": "mint",
+            "base": "",
+            "fields": [
+                {
+                    "name": "user",
+                    "type": "name"
+                },
+                {
+                    "name": "to",
+                    "type": "name"
+                },
+                {
+                    "name": "price_amount",
+                    "type": "asset"
+                }
+            ]
+        },
+        {
+            "name": "pricetime",
+            "base": "",
+            "fields": [
+                {
+                    "name": "end_time",
+                    "type": "uint64"
+                },
+                {
+                    "name": "euro_cent_price",
+                    "type": "uint32"
+                }
+            ]
+        }
+    ],
+    "types": [],
+    "actions": [
+        {
+            "name": "create",
+            "type": "create",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "erase",
+            "type": "erase",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "hi",
+            "type": "hi",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "mint",
+            "type": "mint",
+            "ricardian_contract": ""
+        }
+    ],
+    "tables": [
+        {
+            "name": "pricetime",
+            "type": "pricetime",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        }
+    ],
+    "ricardian_clauses": [],
+    "abi_extensions": []
+}
