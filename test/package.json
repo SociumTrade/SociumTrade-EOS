@@ -1,0 +1,33 @@
+{
+  "name": "pg-eos-wallet",
+  "version": "1.0.0",
+  "description": "Test EOS wallet operations",
+  "main": "src/index.js",
+  "dependencies": {
+    "@cobo/eos": "^0.2.0",
+    "mocha": "^5.2.0",
+    "npm": "^6.4.1",
+    "bip39": "2.5.0",
+    "eosjs": "16.0.6",
+    "eosjs-ecc": "4.0.4",
+    "hdkey": "0.8.0",
+    "safe-buffer": "5.1.1",
+    "secp256k1": "3.5.0",
+    "wif": "2.0.6"
+
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha -t 30000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/0hub/pg-eos-wallet.git"
+  },
+  "keywords": [
+    "EOS"
+  ],
+  "author": "Pavel Kazimirenka",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/0hub/pg-eos-wallet#readme"
+}
