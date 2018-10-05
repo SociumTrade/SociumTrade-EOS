@@ -1,5 +1,5 @@
 {
-    "____comment": "This file was generated with eosio-abigen. DO NOT EDIT Tue Oct  2 21:46:46 2018",
+    "____comment": "This file was generated with eosio-abigen. DO NOT EDIT Fri Oct  5 17:07:48 2018",
     "version": "eosio::abi/1.0",
     "structs": [
         {
@@ -26,16 +26,6 @@
         },
         {
             "name": "erase",
-            "base": "",
-            "fields": [
-                {
-                    "name": "user",
-                    "type": "name"
-                }
-            ]
-        },
-        {
-            "name": "hi",
             "base": "",
             "fields": [
                 {
@@ -87,11 +77,6 @@
         {
             "name": "erase",
             "type": "erase",
-            "ricardian_contract": ""
-        },
-        {
-            "name": "hi",
-            "type": "hi",
             "ricardian_contract": ""
         },
         {

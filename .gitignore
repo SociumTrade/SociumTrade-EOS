@@ -82,3 +82,7 @@ var/lib/node_*
 .idea/
 *.iws
 .DS_Store
+
+test/node_modules/*
+test/yarn-error.log
+test/.idea/*

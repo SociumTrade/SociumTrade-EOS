@@ -46,7 +46,7 @@ public:
     crowdsale(account_name self) : contract(self){}
 
 
-    static  constexpr const char* token_contract_string = "eosio.sm";
+    static  constexpr const char* token_contract_string = "crowdtoken11";
 
     /**
     *  Create method fill the contract with price matrix and start and end date timeline
@@ -104,7 +104,7 @@ public:
 
     /**
     *  Mint method issue token to another account
-    *  @param user (required) - account name who will be authorised to use this contract method and will be billed for this action
+    *  @param user (required) - account name who will be authorised to use this token contract  and will be billed for this action
     *  @param to (required) - account name whom token will be issued
     *  @param price_amount (required) - an asset where price in money is passed and symbol of token
      *  for example "10000.0000 SYS"
@@ -138,12 +138,11 @@ public:
 
         if (last_value == 1316134911)
             eosio_assert(0,"Check if contract started or already ended" );
-
-
+        
         //make issue action to token contract
         action(
                 permission_level{ user, N(active)},
-                N(token_contract_string), N(issue),
+                user, N(issue),
                 std::make_tuple(to, asset(price_amount.amount/last_value,price_amount.symbol), std::string("mint"))
         ).send();
 
@@ -151,7 +150,7 @@ public:
     }
 
 
-    /* Only for testing purposes. Uncomment to be able to remove price matrix table from blockhain
+ //   Only for testing purposes. Uncomment to be able to remove price matrix table from blockhain
     [[eosio::action]]
     void erase(account_name user){
         require_auth(user);
@@ -163,7 +162,7 @@ public:
             iterator = current_price_matrix.cbegin();
         }
     }
-     */
+
 
 private:
 
