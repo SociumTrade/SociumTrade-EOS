@@ -5,8 +5,8 @@
 Before using this contract need to deploy token contract. 
 
 After deploying of a token contract for example: 'eosio.token' and crowdsale contract for example: 'crowdsale' need  to grand eosio.code permissions to crowdsale:
-`cleos set account permission eosio.token active '{"threshold": 1, "keys":[{"key":"<PUBLIC_KEY>", "weight":1}],
-"accounts":[{"permission":{"actor":"crowdsale","permission":"eosio.code"},"weight":1}], "waits":[] }' owner -p eosio.token`
+`cleos set account permission eosio.token active '{"threshold": 1, "keys":[{"key":"<PUBLIC_KEY>", "weight":1}],`
+`"accounts":[{"permission":{"actor":"crowdsale","permission":"eosio.code"},"weight":1}], "waits":[] }' owner -p eosio.token`
 
 ## Methods
 
@@ -25,8 +25,9 @@ Create action fill the contract with price matrix and start and end date timelin
      * param `startTime` (required) - uint32 value in seconds from 1970 when contract should be started.
 
 For example create 10000 maximum supply tokens TOK:
-`cleos push action crowdsale create '["crowdsale","eosio.token", "10000.0000 TOK", "1538832850:4 1548832849:3.5 1558832849:3 1568832849:2.5",1538832849]'
- -p  crowdsale@active`
+
+`cleos push action crowdsale create '["crowdsale","eosio.token", "10000.0000 TOK", "1538832850:4 1548832849:3.5 1558832849:3 1568832849:2.5",1538832849]'`
+ `-p  crowdsale@active`
 
 ### Mint
 Mint action issue token to another account
@@ -34,5 +35,6 @@ Mint action issue token to another account
     *  param `to` (required) - account name whom token will be issued.
     *  param `price_amount` (required) - an asset where price in cents is passed. Can't be fractional.
 
-    For example issue tokens for 10000 cents to bob account:
+For example issue tokens for 10000 cents to bob account:
+
     `cleos push action crowdsale mint '["crowdsale","bob", "10000 CEN"]' -p crowdsale@active`
