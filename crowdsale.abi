@@ -1,5 +1,5 @@
 {
-    "____comment": "This file was generated with eosio-abigen. DO NOT EDIT Mon Oct  8 16:50:30 2018",
+    "____comment": "This file was generated with eosio-abigen. DO NOT EDIT Tue Oct  9 11:43:26 2018",
     "version": "eosio::abi/1.0",
     "structs": [
         {
@@ -29,10 +29,6 @@
                 },
                 {
                     "name": "startTime",
-                    "type": "uint32"
-                },
-                {
-                    "name": "endTime",
                     "type": "uint32"
                 }
             ]
@@ -88,6 +84,11 @@
                     "type": "asset"
                 }
             ]
+        },
+        {
+            "name": "mintinitial",
+            "base": "",
+            "fields": []
         },
         {
             "name": "params",
@@ -148,11 +149,6 @@
             ]
         },
         {
-            "name": "showmintdata",
-            "base": "",
-            "fields": []
-        },
-        {
             "name": "showprices",
             "base": "",
             "fields": []
@@ -201,13 +197,13 @@
             "ricardian_contract": ""
         },
         {
-            "name": "showbalance",
-            "type": "showbalance",
+            "name": "mintinitial",
+            "type": "mintinitial",
             "ricardian_contract": ""
         },
         {
-            "name": "showmintdata",
-            "type": "showmintdata",
+            "name": "showbalance",
+            "type": "showbalance",
             "ricardian_contract": ""
         },
         {
