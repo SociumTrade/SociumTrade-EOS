@@ -1,0 +1,1 @@
+console.log("Please run 'npm test' to see how this works");

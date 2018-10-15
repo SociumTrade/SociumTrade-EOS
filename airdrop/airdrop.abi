@@ -1,0 +1,250 @@
+{
+    "____comment": "This file was generated with eosio-abigen. DO NOT EDIT Tue Oct  9 11:43:26 2018",
+    "version": "eosio::abi/1.0",
+    "structs": [
+        {
+            "name": "centsraised",
+            "base": "",
+            "fields": []
+        },
+        {
+            "name": "create",
+            "base": "",
+            "fields": [
+                {
+                    "name": "user",
+                    "type": "name"
+                },
+                {
+                    "name": "token_contract",
+                    "type": "name"
+                },
+                {
+                    "name": "maximum_supply",
+                    "type": "asset"
+                },
+                {
+                    "name": "price_time_values_string",
+                    "type": "string"
+                },
+                {
+                    "name": "startTime",
+                    "type": "uint32"
+                }
+            ]
+        },
+        {
+            "name": "currentprice",
+            "base": "",
+            "fields": []
+        },
+        {
+            "name": "erase",
+            "base": "",
+            "fields": [
+                {
+                    "name": "user",
+                    "type": "name"
+                }
+            ]
+        },
+        {
+            "name": "help",
+            "base": "",
+            "fields": []
+        },
+        {
+            "name": "mint",
+            "base": "",
+            "fields": [
+                {
+                    "name": "user",
+                    "type": "name"
+                },
+                {
+                    "name": "to",
+                    "type": "name"
+                },
+                {
+                    "name": "price_amount",
+                    "type": "asset"
+                }
+            ]
+        },
+        {
+            "name": "mintdata",
+            "base": "",
+            "fields": [
+                {
+                    "name": "holder_account",
+                    "type": "name"
+                },
+                {
+                    "name": "token_amount",
+                    "type": "asset"
+                }
+            ]
+        },
+        {
+            "name": "mintinitial",
+            "base": "",
+            "fields": []
+        },
+        {
+            "name": "params",
+            "base": "",
+            "fields": [
+                {
+                    "name": "owner",
+                    "type": "name"
+                },
+                {
+                    "name": "token_sold",
+                    "type": "asset"
+                },
+                {
+                    "name": "cents_raised",
+                    "type": "uint64"
+                },
+                {
+                    "name": "start_contract_time",
+                    "type": "uint64"
+                },
+                {
+                    "name": "end_contract_time",
+                    "type": "uint64"
+                },
+                {
+                    "name": "max_supply",
+                    "type": "asset"
+                },
+                {
+                    "name": "token_contract",
+                    "type": "name"
+                }
+            ]
+        },
+        {
+            "name": "pricetime",
+            "base": "",
+            "fields": [
+                {
+                    "name": "end_time",
+                    "type": "uint64"
+                },
+                {
+                    "name": "euro_cent_price",
+                    "type": "uint32"
+                }
+            ]
+        },
+        {
+            "name": "showbalance",
+            "base": "",
+            "fields": [
+                {
+                    "name": "user",
+                    "type": "name"
+                }
+            ]
+        },
+        {
+            "name": "showprices",
+            "base": "",
+            "fields": []
+        },
+        {
+            "name": "showtimeline",
+            "base": "",
+            "fields": []
+        },
+        {
+            "name": "tokensold",
+            "base": "",
+            "fields": []
+        }
+    ],
+    "types": [],
+    "actions": [
+        {
+            "name": "centsraised",
+            "type": "centsraised",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "create",
+            "type": "create",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "currentprice",
+            "type": "currentprice",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "erase",
+            "type": "erase",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "help",
+            "type": "help",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "mint",
+            "type": "mint",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "mintinitial",
+            "type": "mintinitial",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "showbalance",
+            "type": "showbalance",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "showprices",
+            "type": "showprices",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "showtimeline",
+            "type": "showtimeline",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "tokensold",
+            "type": "tokensold",
+            "ricardian_contract": ""
+        }
+    ],
+    "tables": [
+        {
+            "name": "mintdata",
+            "type": "mintdata",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "params",
+            "type": "params",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "pricetime",
+            "type": "pricetime",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        }
+    ],
+    "ricardian_clauses": [],
+    "abi_extensions": []
+}
