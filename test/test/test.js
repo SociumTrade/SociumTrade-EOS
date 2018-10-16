@@ -7,61 +7,27 @@ const BigNumber = require('bignumber.js');
 const EosJsError = require('eosjs/dist/eosjs-rpcerror.js');
 const assert = require('chai').assert;
 const { TextDecoder, TextEncoder } = require('text-encoding');
+const config = require('../config.js');
 
 
 
-const nodeURL = 'http://127.0.0.1:7777';
-const tokenSymbol = 'AAA';
-const tokenAccount = 'eosio.sm';
-const smartContractAccount = 'crowd1';
-
-const testAccount = 'testnew';
 
 
-const defaultPrivateKey = "5KMK6m7jCqhxhEBnD1AVaPnLT17JfVdFPHGzLmSBC35LaHG5yNz"; // smartContract user Private key
-const defaultPublicKey = "EOS8QjDxHUYcUYHJjVSKUiWXrLBm9rdVdcvWuCN6yNAkkBEt4uNBc"; // eosio user Public key
 
-//const testUserPrivateKey = "5KMK6m7jCqhxhEBnD1AVaPnLT17JfVdFPHGzLmSBC35LaHG5yNz"; // eosio user Private key
-const testUserPublicKey = "EOS6igJ7ZTv1MS9mdSynARZ5LYX5QUcBvVArvu1MamhBW31owZfEp"; // testnew user Public key
 
-const signatureProvider = new Eos.SignatureProvider([defaultPrivateKey]);
+
+
+const signatureProvider = new Eos.SignatureProvider([config.defaultPrivateKey]);
 
 
 
 /** Initialiasation of EOS RPC */
 
-const rpc = new Eos.Rpc.JsonRpc(nodeURL, { fetch });
+const rpc = new Eos.Rpc.JsonRpc(config.nodeURL, { fetch });
 
 const api = new Eos.Api({ rpc, signatureProvider, textDecoder: new TextDecoder, textEncoder: new TextEncoder });
 
 
-let now = new Date().getTime() / 1000;
-console.dir(now);
-
-/** Make lot's of random accounts with different permissions and keys and store them in an array*/
-
-
-const randomName = () => {
-    const name = String(Math.round(Math.random() * 1000000000)).replace(/[0,6-9]/g, '')
-    return 'a' + name + '111222333444'.substring(0, 11 - name.length) // always 12 in length
-}
-
-
-const rate = new BigNumber(1);
-const tokenSupply = new BigNumber('1e22');
-//const expectedTokenAmount = rate.mul(value);
-const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000';
-
-console.log(rate);
-console.log(tokenSupply);
-//console.log(expectedTokenAmount);
-
-
-let randomUsersArray = Array();
-for (let i = 0; i<10; i++)
-{
-    randomUsersArray.push(randomName());
-}
 
 describe('Check contract  method create', function() {
 
@@ -69,17 +35,17 @@ describe('Check contract  method create', function() {
         try {
             const trx = await api.transact({
                 actions: [{
-                    account: smartContractAccount,
+                    account: config.smartContractAccount,
                     name: "create",
                     authorization: [{
-                        actor: smartContractAccount,
+                        actor: config.smartContractAccount,
                         permission: "active"
                     }
                     ],
                     data: {
-                        user: smartContractAccount,
+                        user: config.smartContractAccount,
                         token_contract: "",
-                        maximum_supply: "100000.0000 "+tokenSymbol,
+                        maximum_supply: "100000.0000 "+config.tokenSymbol,
                         price_time_values_string:"1538832850:1 1548832849:2 1558832849:3 1568832849:4",
                         startTime: "1538832849"
                     }
@@ -101,17 +67,17 @@ describe('Check contract  method create', function() {
         try {
             const trx = await api.transact({
                 actions: [{
-                    account: smartContractAccount,
+                    account: config.smartContractAccount,
                     name: "create",
                     authorization: [{
-                        actor: smartContractAccount,
+                        actor: config.smartContractAccount,
                         permission: "active"
                     }
                     ],
                     data: {
-                        user: smartContractAccount,
-                        token_contract: tokenAccount,
-                        maximum_supply: "0.0000 "+tokenSymbol,
+                        user: config.smartContractAccount,
+                        token_contract: config.tokenAccount,
+                        maximum_supply: "0.0000 "+config.tokenSymbol,
                         price_time_values_string:"1538832850:1 1548832849:2 1558832849:3 1568832849:4",
                         startTime: "1538832849"
                     }
@@ -133,17 +99,17 @@ describe('Check contract  method create', function() {
         try {
             const trx = await api.transact({
                 actions: [{
-                    account: smartContractAccount,
+                    account: config.smartContractAccount,
                     name: "create",
                     authorization: [{
-                        actor: smartContractAccount,
+                        actor: config.smartContractAccount,
                         permission: "active"
                     }
                     ],
                     data: {
                         user: "",
-                        token_contract: tokenAccount,
-                        maximum_supply: "10000.0000 "+tokenSymbol,
+                        token_contract: config.tokenAccount,
+                        maximum_supply: "10000.0000 "+config.tokenSymbol,
                         price_time_values_string:"1538832850:1 1548832849:2 1558832849:3 1568832849:4",
                         startTime: "1538832849"
                     }
@@ -165,7 +131,7 @@ describe('Check contract  method create', function() {
         try {
             const trx = await api.transact({
                 actions: [{
-                    account: smartContractAccount,
+                    account: config.smartContractAccount,
                     name: "create",
                     authorization: [{
                         actor: "eosio",
@@ -174,8 +140,8 @@ describe('Check contract  method create', function() {
                     ],
                     data: {
                         user: "eosio",
-                        token_contract: tokenAccount,
-                        maximum_supply: "10000.0000 "+tokenSymbol,
+                        token_contract: config.tokenAccount,
+                        maximum_supply: "10000.0000 "+config.tokenSymbol,
                         price_time_values_string:"1538832850:1 1548832849:2 1558832849:3 1568832849:4",
                         startTime: "1538832849"
                     }
@@ -197,17 +163,17 @@ describe('Check contract  method create', function() {
         try {
             const trx = await api.transact({
                 actions: [{
-                    account: smartContractAccount,
+                    account: config.smartContractAccount,
                     name: "create",
                     authorization: [{
-                        actor: testAccount,
+                        actor: config.testAccount,
                         permission: "active"
                     }
                     ],
                     data: {
-                        user: testAccount,
-                        token_contract: tokenAccount,
-                        maximum_supply: "10000.0000 "+tokenSymbol,
+                        user: config.testAccount,
+                        token_contract: config.tokenAccount,
+                        maximum_supply: "10000.0000 "+config.tokenSymbol,
                         price_time_values_string:"1538832850:1 1548832849:2 1558832849:3 1568832849:4",
                         startTime: "1538832849"
                     }
@@ -232,17 +198,17 @@ describe('Check contract  method create', function() {
         try {
             const trx = await api.transact({
                 actions: [{
-                    account: smartContractAccount,
+                    account: config.smartContractAccount,
                     name: "create",
                     authorization: [{
-                        actor: smartContractAccount,
+                        actor: config.smartContractAccount,
                         permission: "active"
                     }
                     ],
                     data: {
-                        user: smartContractAccount,
-                        token_contract: tokenAccount,
-                        maximum_supply: "10000.0000 "+tokenSymbol,
+                        user: config.smartContractAccount,
+                        token_contract: config.tokenAccount,
+                        maximum_supply: "10000.0000 "+config.tokenSymbol,
                         price_time_values_string:"1538832850:1 1548832849:2 1558832849:3 1568832849:4",
                         startTime: "1638832849"
                     }
@@ -272,17 +238,17 @@ describe('Check contract method mint', function() {
         try {
             const trx = await api.transact({
                 actions: [{
-                    account: smartContractAccount,
+                    account: config.smartContractAccount,
                     name: "mint",
                     authorization: [{
-                        actor: smartContractAccount,
+                        actor: config.smartContractAccount,
                         permission: "active"
                     }
                     ],
                     data: {
-                        user: smartContractAccount,
-                        to: testAccount,
-                        price_amount: "1 "+tokenSymbol,
+                        user: config.smartContractAccount,
+                        to: config.testAccount,
+                        price_amount: "1 "+config.tokenSymbol,
 
                     }
 
@@ -303,17 +269,17 @@ describe('Check contract method mint', function() {
         try {
             const trx = await api.transact({
                 actions: [{
-                    account: smartContractAccount,
+                    account: config.smartContractAccount,
                     name: "mint",
                     authorization: [{
-                        actor: smartContractAccount,
+                        actor: config.smartContractAccount,
                         permission: "active"
                     }
                     ],
                     data: {
-                        user: smartContractAccount,
-                        to: testAccount,
-                        price_amount: "1.000 "+tokenSymbol,
+                        user: config.smartContractAccount,
+                        to: config.testAccount,
+                        price_amount: "1.000 "+config.tokenSymbol,
 
                     }
 
@@ -334,17 +300,17 @@ describe('Check contract method mint', function() {
         try {
             const trx = await api.transact({
                 actions: [{
-                    account: smartContractAccount,
+                    account: config.smartContractAccount,
                     name: "mint",
                     authorization: [{
-                        actor: smartContractAccount,
+                        actor: config.smartContractAccount,
                         permission: "active"
                     }
                     ],
                     data: {
-                        user: smartContractAccount,
+                        user: config.smartContractAccount,
                         to: "brian",
-                        price_amount: "1 "+tokenSymbol,
+                        price_amount: "1 "+config.tokenSymbol,
 
                     }
 
@@ -365,17 +331,17 @@ describe('Check contract method mint', function() {
         try {
             const trx = await api.transact({
                 actions: [{
-                    account: smartContractAccount,
+                    account: config.smartContractAccount,
                     name: "mint",
                     authorization: [{
-                        actor: smartContractAccount,
+                        actor: config.smartContractAccount,
                         permission: "active"
                     }
                     ],
                     data: {
-                        user: smartContractAccount,
-                        to: testAccount,
-                        price_amount: "1000000000000000 "+tokenSymbol,
+                        user: config.smartContractAccount,
+                        to: config.testAccount,
+                        price_amount: "1000000000000000 "+config.tokenSymbol,
 
                     }
 
@@ -397,17 +363,17 @@ describe('Check contract method mint', function() {
         try {
             const trx = await api.transact({
                 actions: [{
-                    account: smartContractAccount,
+                    account: config.smartContractAccount,
                     name: "mint",
                     authorization: [{
-                        actor: testAccount,
+                        actor: config.testAccount,
                         permission: "active"
                     }
                     ],
                     data: {
-                        user: testAccount,
-                        to: testAccount,
-                        price_amount: "1 "+tokenSymbol,
+                        user: config.testAccount,
+                        to: config.testAccount,
+                        price_amount: "1 "+config.tokenSymbol,
 
                     }
 
