@@ -5,6 +5,8 @@
   "main": "src/index.js",
   "dependencies": {
     "@types/node": "^10.11.4",
+    "bignumber.js": "^7.2.1",
+    "chai": "^4.2.0",
     "eosjs": "^20.0.0-beta1",
     "eosjs-api": "^7.0.4",
     "eosjs-ecc": "^4.0.4",
